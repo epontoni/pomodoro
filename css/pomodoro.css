@@ -1,0 +1,101 @@
+:root {
+    --circleSize: 15.25rem;
+}
+.pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    /*flex: 1;*/
+    max-inline-size: 25.25rem;
+    max-block-size: 32.5rem;
+    margin: auto;
+
+    background-color: var(--black);
+    border-radius: 1rem;
+    padding: 3rem;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.24), -4px -4px 16px rgba(73, 73, 73, 0.4);
+}
+
+.pomodoro h1 {
+    margin: 0;
+    color: var(--white);
+    font: var(--title);
+    text-align: center;
+}
+
+.pomodoro-progress {
+    /*border: 10px solid rgba(244,70,215,.2);
+    border-radius: 50%;
+    inline-size: 15.25rem;
+    block-size: 15.25rem;
+    margin-block: 1.25rem;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*justify-items: center;*/
+    text-align: center;
+}
+
+.pomodoro-timer {
+    color: var(--pink);
+    font-size: 4.0625rem;
+}
+
+.circle {
+    background: rgba(244,70,215,.2);
+    inline-size: 15.25rem;
+    block-size: 15.25rem;
+    border-radius: 50%;
+}
+
+.mask {
+    inline-size: 15.25rem;
+    block-size: 15.25rem;
+    border-radius: 50%;
+    position: absolute;
+    /* rect(<top>, <right>, <bottom>, <left>) */
+    clip: rect(0px var(--circleSize) var(--circleSize) calc(var(--circleSize)/2));
+    backface-visibility: hidden;
+}
+
+.fill {
+    background: var(--pink);
+    inline-size: 15.25rem;
+    block-size: 15.25rem;
+    border-radius: 50%;
+    transition: transform 1s;
+    position: absolute;
+    /* rect(<top>, <right>, <bottom>, <left>) */
+    clip: rect(0px calc(var(--circleSize)/2) var(--circleSize) 0px);
+    backface-visibility: hidden;
+}
+
+.pomodoro-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.pomodoro-actions button {
+    display: block;
+    width: 100%;
+    background: var(--bg);
+    border: none;
+    outline: none;
+    box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.24), -4px -4px 16px rgba(73, 73, 73, 0.4);
+    border-radius: .5rem;
+    color: var(--white);
+    padding: .625rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.pomodoro-actions button:disabled {
+    color: var(--red);
+    cursor: no-drop;
+    opacity: 0.4;
+}
