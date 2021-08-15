@@ -73,7 +73,8 @@
 
 .circle .left .progress {
     z-index: 1;
-    animation: left 4s linear both;
+    animation: left 750s linear both;
+    animation-play-state: paused;
 }
 
 @keyframes left {
@@ -88,8 +89,9 @@
 }
 
 .circle .right .progress {
-    animation: right 4s linear both;
-    animation-delay: 4s;
+    animation: right 750s linear both;
+    animation-delay: 750s;
+    animation-play-state: paused;
 }
 
 @keyframes right {
@@ -118,8 +120,9 @@
     width: 50%;
     height: 12.5px;
     margin-top: -6.25px;
-    animation: dot 8s linear both;
+    animation: dot 1500s linear both;
     transform-origin: 0% 50%;
+    animation-play-state: paused;
 }
 
 .circle .dot span {
