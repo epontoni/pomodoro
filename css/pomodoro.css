@@ -1,3 +1,4 @@
+@import "./circular-progress-bar.css";
 :root {
     --circleSize: 15.25rem;
 }
@@ -37,6 +38,7 @@
     justify-content: center;
     /*justify-items: center;*/
     text-align: center;
+    min-width: 100%;
 }
 
 .pomodoro-timer {

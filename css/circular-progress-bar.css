@@ -1,0 +1,144 @@
+:root {
+    /*-- circleSize: 244px = 15.25rem */
+    --innerCircleSize: calc( var(--circleSize) - 25px );
+    --innerCircleMargin: calc( -1*( (var(--innerCircleSize) / 2 )));
+}
+
+.circular {
+    height: var(--circleSize);
+    width: var(--circleSize);
+    position: relative;
+}
+
+.circular .inner,
+.circular .outer,
+.circular .circle {
+    position: absolute;
+    z-index: 6;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    box-shadow: inset 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.circular .inner {
+    top: 50%;
+    left: 50%;
+    height: var(--innerCircleSize);
+    width: var(--innerCircleSize);
+    margin-top: var(--innerCircleMargin);
+    margin-left: var(--innerCircleMargin);
+    /*margin: -112px 0 0 -112px;*/
+    background-color: var(--black);
+    border-radius: 100%;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+.circular .circle {
+    z-index: 1;
+    box-shadow: none;
+}
+
+.circular .numb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    color: var(--pink);
+    font-size: 4.0625rem;
+}
+
+.circular .bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparent; /* rgba(244,70,215,.2); */
+    border-radius: 100%;
+    clip: rect(0px, var(--circleSize), var(--circleSize), calc( var(--circleSize) / 2 ));
+}
+
+.circle .bar .progress {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    clip: rect(0px, calc( var(--circleSize) / 2 ), var(--circleSize), 0px);
+}
+
+.circle .bar .progress,
+.dot span {
+    background: var(--pink);
+}
+
+.circle .left .progress {
+    z-index: 1;
+    animation: left 4s linear both;
+}
+
+@keyframes left {
+    100% {
+      transform: rotate(180deg);
+    }
+}
+
+.circle .right {
+    z-index: 3;
+    transform: rotate(180deg);
+}
+
+.circle .right .progress {
+    animation: right 4s linear both;
+    animation-delay: 4s;
+}
+
+@keyframes right {
+    100% {
+      transform: rotate(180deg);
+    }
+}
+
+.circle .dot-fixed {
+    z-index: 2;
+    position: absolute;
+    left: calc(50% - 7.5px);
+    top: 5px;
+    width: 12.5px;
+    height: 12.5px;
+    margin-top: -5px;
+    background: var(--pink);
+    border-radius: 50%;
+}
+
+.circle .dot {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 12.5px;
+    margin-top: -6.25px;
+    animation: dot 8s linear both;
+    transform-origin: 0% 50%;
+}
+
+.circle .dot span {
+    position: absolute;
+    right: 0;
+    width: 12.5px;
+    height: 12.5px;
+    border-radius: 100%;
+}
+  @keyframes dot{
+    0% {
+      transform: rotate(-90deg);
+    }
+    50% {
+      transform: rotate(90deg);
+      z-index: 4;
+    }
+    100% {
+      transform: rotate(270deg);
+      z-index: 4;
+    }
+  }
